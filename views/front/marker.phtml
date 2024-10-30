@@ -1,0 +1,47 @@
+<?php
+/**
+ * @author epointal
+ * Template for div maker information
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
+<?php if(strlen($html)> 2):?>
+<div id="<?=$marker_id?>" class="lfh-info-<?=$map_count?> lfh-element lfh-hidden step0"  >
+    <div>
+        <!-- header -->
+        <div class="lfh-head">
+            <h3>
+                <span class="lfh-trackname"><?=ucfirst(stripslashes( $options['title'] ))?>&nbsp;</span>
+                <span  class="lfh-close lfhicon lfhicon-close" >&nbsp;</span>
+            </h3>
+        </div>
+        <!-- end header -->
+        <div class="lfh-element-content">
+        <div  class="lfh-position">
+        <!-- control buttons -->
+            <div >
+                <div>
+                    <span class="lfh-var"><?=ucfirst(__('latitude' , 'lfh'))?>:</span>
+                    <span class="lfh-number"><?=Lfh_Model_Map::to_string($options['lat'])?></span>
+                </div>
+                <div>
+                    <span class="lfh-var"><?=ucfirst(__('longitude' , 'lfh'))?>:</span>
+                    <span class="lfh-number"><?=Lfh_Model_Map::to_string($options['lng'])?></span>
+                </div>
+            </div>
+        </div>
+       
+        <!-- misc info -->
+        <div class="lfh-section">
+            <div class="lfh-header">
+            <h4><?=ucfirst(__('description', 'lfh'))?></h4>
+            </div>    
+            <div class="lfh-content lfh-description" >
+            <?php echo do_shortcode($html);?>
+            </div>
+        </div>
+     
+        </div>
+    </div>
+</div>
+<?php endif;?>
